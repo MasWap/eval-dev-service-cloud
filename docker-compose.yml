@@ -1,0 +1,14 @@
+services:
+  api1:
+    image: maswap/api1:latest
+    ports:
+      - "3000:3000"
+    environment:
+      - API2_URL=http://api2:3001
+    depends_on:
+      - api2
+
+  api2:
+    image: maswap/api2:latest
+    ports:
+      - "3001:3001"
